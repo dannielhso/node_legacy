@@ -1,7 +1,8 @@
 const express = require('express')
 const ejs = require('ejs')
 const bodyParser = require('body-parser')
-const mysql = require('mysql2');
+const mysql = require('mysql2')
+require('dotenv').config();
 const app = express()
 const port = 3000
 
@@ -13,6 +14,15 @@ app.use(express.static(__dirname+'/public'))
 app.use(bodyParser.urlencoded({ extended: false }))
 // parse JSON
 app.use(bodyParser.json())
+// MySQL Connection
+const connection = mysql.createConnection({ // 민감 정보 -> push 찍으면 안된다.
+    host: process.env.DB_HOST,
+    user: process.env.DB_USER,
+    password: process.env.DB_PW,
+    port: process.env.DB_PORT,
+    database: process.env.DB_NAME,
+    insecureAuth: true,
+}); // 어떻게 숨길 수 있을까? -> dotenv를 통해서 우회접근하고 .env는 추적 비활성화 한다.
 
 app.get('/', (req, res) => {
     res.render('index.ejs')  // .ejs 확장자를 붙여도 되고 없애도 된다.
