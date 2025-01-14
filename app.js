@@ -1,19 +1,19 @@
-const express = require('express')
-const ejs = require('ejs')
-const bodyParser = require('body-parser')
-const mysql = require('mysql2')
+const express = require('express');
+const ejs = require('ejs');
+const bodyParser = require('body-parser');
+const mysql = require('mysql2');
 require('dotenv').config();
-const app = express()
-const port = 3000
+const app = express();
+const port = 3000;
 
 app.set('view engine', 'ejs');
-app.set('views', './views')
+app.set('views', './views');
 // static file serving
-app.use(express.static(__dirname+'/public'))
+app.use(express.static(__dirname+'/public'));
 // parse application/x-www-form-urlencoded
-app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.urlencoded({ extended: false }));
 // parse JSON
-app.use(bodyParser.json())
+app.use(bodyParser.json());
 
 // MySQL ConnectionPool :
 // MySQL 커넥션을 사용 할 때는, 주로 커넥션 풀을 이용하여 관리하는 것이 권장된다.
@@ -36,24 +36,24 @@ connectionPool.getConnection((err, connection) => {
         console.log('MySQL에 연결되었습니다.');
         connection.release();
     }
-})
+});
 
 
 app.get('/', (req, res) => {
-    res.render('index.ejs')  // .ejs 확장자를 붙여도 되고 없애도 된다.
-})
+    res.render('index.ejs');  // .ejs 확장자를 붙여도 되고 없애도 된다.
+});
 
 app.get('/blog', (req, res) => {
-    res.render('blog')
-})
+    res.render('blog');
+});
 
 app.get('/users', (req, res) => {
-    res.render('users')
-})
+    res.render('users');
+});
 
 app.get('/contact', (req, res) => {
-    res.render('contact')
-})
+    res.render('contact');
+});
 
 app.post('/api/contact', (req, res) => {
     const name = req.body.name;
@@ -70,11 +70,11 @@ app.post('/api/contact', (req, res) => {
             res.status(500).send('내부 서버 오류');
         } else {
             console.log('데이터가 삽입 되었습니다.');
-            res.send("<script>alert('문의사항이 등록되었습니다. '); location.href='/'</script>")
+            res.send("<script>alert('문의사항이 등록되었습니다. '); location.href='/'</script>");
         }
-    })
-})
+    });
+});
 
 app.listen(port, () => {
-    console.log(`Node Legacy App listening on port ${port}`)
-})
+    console.log(`Node Legacy App listening on port ${port}`);
+});
