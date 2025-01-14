@@ -19,6 +19,11 @@ app.get('/blog', (req, res) => {
 app.get('/users', (req, res) => {
     res.render('users')
 })
+
+app.get('/contact', (req, res) => {
+    res.render('contact')
+})
+
 app.post('/api/contact', (req, res) => {
     const name = req.body.name;
     const phone = req.body.phone;
