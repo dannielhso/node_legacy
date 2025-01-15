@@ -1,16 +1,26 @@
 <%-include('layouts/header.ejs')%>
 
     <h2>문의하기</h2>
-    <form action="api/contact" method="post">
-        <ul>
-            <li>이름 : <input type="text" name= "name" required></li>
-            <li>연락처 : <input type="text" name= "phone" required></li>
-            <li>이메일 : <input type="text" name= "email" required></li>
-            <li>문의내용 : 
-                <textarea name="memo" cols="50" row="10"></textarea>>
-            </li>
-            <button type="submit">문의하기</button>
-        </ul>
-    </form>
+    <div>
+        <div style="float:left;">
+            <p>Contact down below and I'll get back to you soon.</p>
+            <p><span class="glyphicon glyphicon-map-marker"></span> Gyeonggi-do, Namyangju</p>
+            <p><span class="glyphicon glyphicon-phone"></span> +082 10-2872-5915</p>
+            <p><span class="glyphicon glyphicon-envelope"></span> citefred@gmail.com</p>
+        </div>
+        <div>
+            <form action="api/contact" method="post">
+                <ul>
+                    <li>이름 : <input type="text" name= "name" placeholder="Name" required></li> 
+                    <li>연락처 : <input type="text" name= "phone" placeholder="Phone Number" required></li>
+                    <li>이메일 : <input type="text" name= "email" placeholder="Email Adress" required></li>
+                    <li>문의내용 : 
+                        <textarea name="memo" placeholder="Memo" cols="50" row="10"></textarea>>
+                    </li>
+                    <button type="submit">보내기</button>
+                </ul>
+            </form>
+        </div>
+    </div>
 
 <%-include('layouts/footer.ejs')%>

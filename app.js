@@ -42,16 +42,35 @@ app.get('/', (req, res) => {
     res.render('index.ejs');  // .ejs 확장자를 붙여도 되고 없애도 된다.
 });
 
-app.get('/blog', (req, res) => {
-    res.render('blog');
+app.get('/like', (req, res) => {
+    res.render('like');
 });
 
-app.get('/users', (req, res) => {
-    res.render('users');
+
+app.get('/portfolio', (req, res) => {
+    res.render('portfolio');
 });
 
 app.get('/contact', (req, res) => {
     res.render('contact');
+});
+
+app.get('/follow', (req, res) => {
+    res.render('follow');
+});
+
+app.get('/friends', (req, res) => {
+    const selectQuery = 'SELECT * FROM friends ORDER BY ID DESC;';
+    connectionPool.query(selectQuery, (err, result) => {
+        if (err) {
+            console.error('데이터 조회 중 에러 발생 : ', err);
+            res.status(500).send('내부 서버 오류');
+        } else {
+            console.log('데이터가 조회 되었습니다.');
+            console.log(result);
+            res.render('friends', {lists: result});
+        }
+    });
 });
 
 app.post('/api/contact', (req, res) => {
@@ -74,9 +93,26 @@ app.post('/api/contact', (req, res) => {
     });
 });
 
+app.post('/api/follow', (req, res) => {
+    const name = req.body.name;
+    const phone = req.body.phone;
+    const email = req.body.email;
+    const SQL_Query = `INSERT INTO friends(name, phone, email) 
+                    VALUES ('${name}', '${phone}', '${email}');`;
+    
+    connectionPool.query(SQL_Query, (err, result) => {
+        if (err) {
+            console.error('데이터 삽입 중 에러 발생 : ', err);
+            res.status(500).send('내부 서버 오류');
+        } else {
+            console.log('데이터가 삽입 되었습니다.');
+            res.send("<script>alert('친구 추가 되었습니다. '); location.href='/'</script>");
+        }
+    });
+});
+
 app.get('/contactList', (req, res) => {
     const selectQuery = 'SELECT * FROM contact ORDER BY ID DESC;';
-
     connectionPool.query(selectQuery, (err, result) => {
         if (err) {
             console.error('데이터 조회 중 에러 발생 : ', err);
@@ -85,6 +121,21 @@ app.get('/contactList', (req, res) => {
             console.log('데이터가 조회 되었습니다.');
             console.log(result);
             res.render('contactList', {lists: result}); // ('뷰', {모델})
+        }
+    });
+});
+
+app.put('/api/friendsDelete/:id', (req, res) => {
+    const id = req.params.id;
+    const deleteQuery = `DELETE FROM friends WHERE ID='${id}';`;
+    connectionPool.query(deleteQuery, (err, result) => {
+        if (err) {
+            console.error('데이터 삭제 중 에러 발생:', err);
+            res.status(500).send('내부 서버 오류');
+        } else {
+            console.log('데이터가 삭제되었습니다.');
+            console.log(result);
+            res.send("<script>alert('친구가 삭제되었습니다.'); location.href='/contactList'</script>");
         }
     });
 });

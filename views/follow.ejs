@@ -1,0 +1,13 @@
+<%-include('layouts/header.ejs')%>
+
+    <h2>친구 추가 하기</h2>
+    <form action="api/follow" method="post">
+        <ul>
+            <li>이름 : <input type="text" name= "name" placeholder="Name" required></li> 
+            <li>연락처 : <input type="text" name= "phone" placeholder="Phone Number" required></li>
+            <li>이메일 : <input type="text" name= "email" placeholder="Email Adress" required></li>
+            <button type="submit">추가하기</button>
+        </ul>
+    </form>
+
+<%-include('layouts/footer.ejs')%>
