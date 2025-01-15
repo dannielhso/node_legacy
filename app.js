@@ -87,7 +87,22 @@ app.get('/contactList', (req, res) => {
             res.render('contactList', {lists: result}); // ('뷰', {모델})
         }
     });
-})
+});
+
+app.delete('/api/contactDelete/:id', (req, res) => { // path variable 방식으로 접근.
+    const id = req.params.id;
+    const deleteQuery = `DELETE FROM contact WHERE ID = '${id}'`;
+    connectionPool.query(deleteQuery, (err, result) => {
+        if (err) {
+            console.error('데이터 삭제 중 에러 발생 : ', err);
+            res.status(500).send('내부 서버 오류');
+        } else {
+            console.log('데이터가 삭제 되었습니다.');
+            console.log(result);
+            res.send("<script>alert('문의사항이 삭제되었습니다. '); location.href='/contactList'</script>");
+        }
+    });
+});
 
 app.listen(port, () => {
     console.log(`Node Legacy App listening on port ${port}`);
