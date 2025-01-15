@@ -26,17 +26,53 @@
             <td><%=item.create_at%></td>
             <td><%=item.modify_at%></td>
             <td>
-                <form action="/api/contactUpdate/<%=item.id%>" method="post">
-                    <button type="submit" onclick="return confirm('메모를 확인하셨습니까?')"> UPDATE </button>
-                </form>
+                <button type="button" onclick="updateContact(<%=item.id%>)"> UPDATE </button>
+                <!-- <button type"button" data-contactId="<%=item.id%>" onclick="updateContact(this.dataset.contactId)"> UPDATE </button> -->
             </td>
             <td>
-                <form action="/api/contactDelete/<%=item.id%>" method="post">
-                    <button type="submit" onclick="return confirm('정말 삭제하시겠습니까?')"> DELETE </button>
-                </form>
+                <button type="button" onclick="deleteContact('<%=item.id%>')"> DELETE </button>
             </td>
         </tr>
         <% }) %>
     </table>
+
+    <script>
+        async function updateContact(contactId) {
+            try {
+                const response = await fetch(`/api/contactUpdate/${contactId}`, {
+                    method: 'PUT', // HTTP 메서드
+                    headers: {
+                        'Content-Type': 'application/json' // 데이터 형식 지정 (필요한 경우)
+                    }
+                    // PUT 요청의 경우 body가 필요할 수 있음
+                });
+
+                if (!response.ok) {
+                    throw new Error('업데이트 오류'); // throw를 통해 catch절로 오류 객체 전달
+                }
+                alert('문의사항이 업데이트되었습니다.');
+                location.reload(); // 페이지 새로고침 또는 다른 업데이트 방식 선택
+            } catch (error) {
+                console.error('업데이트 오류:', error); // 오류 처리
+            }
+        }
+        async function deleteContact(contactId) {
+            try {
+                const response = await fetch(`/api/contactDelete/${contactId}`, {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                });
+                if (!response.ok) {
+                    throw new Error('삭제 오류');
+                }
+                alert('문의사항이 삭제되었습니다.');
+                location.reload();
+            } catch (error) {
+                console.error('삭제 오류 : ', error);
+            }
+        }
+    </script>
 
 <%-include('layouts/footer.ejs')%>
