@@ -219,9 +219,7 @@
             </div>
         </div>
         
-        
-
-        <div class="containerContact my-5">
+        <div class="containerContact my-5" id="contact">
             <h2 class="text-center my-5">문의하기</h2>
             <div class="row">
                 <div class="col-md-6 contact-info">
@@ -229,7 +227,18 @@
                     <p><strong>전화번호:</strong> 010-1234-5678</p>
                     <p><strong>이메일:</strong> example@example.com</p>
                     <p><strong>주소:</strong> 서울특별시 예시구 예시동 123-45</p>
+                    
+                    <!-- 지도 추가 -->
+                    <h4 class="mt-4">위치</h4>
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3162.123456789012!2d127.123456789!3d37.123456789!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2z6rWQ7J6Y7J6Y7J6Y7J6Y7J6Y7J6Y7J6Y!5e0!3m2!1sko!2skr!4v1623456789012" 
+                        width="100%" 
+                        height="200" 
+                        style="border:0;" 
+                        allowfullscreen="" 
+                        loading="lazy"></iframe>
                 </div>
+                
                 <div class="col-md-6">
                     <form action="api/contact" method="post">
                         <div class="row gy-4">
@@ -263,10 +272,7 @@
         </div>
         
         
-
-
     </main>
-
     <%-include('layouts/footer.ejs')%>
 </body>
 

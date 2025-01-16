@@ -112,6 +112,12 @@ input.form-control:focus, textarea.form-control:focus {
     background-color: #0d47a1; /* 버튼 호버 시 색상 변경 */
 }
 
+.map-container {
+    margin-top: 20px; /* 지도와 연락처 정보 간 여백 */
+    text-align: center; /* 지도 중앙 정렬 */
+}
+
+
 
 .portfolio-section {
     background-color: white; /* 흰색 배경 */
@@ -131,3 +137,13 @@ input.form-control:focus, textarea.form-control:focus {
     height: auto; /* 비율 유지 */
     border-radius: 5px; /* 이미지 모서리 둥글게 */
 }
+
+.containerFriends {
+    max-width: 600px; /* 최대 너비 설정 */
+    margin: auto; /* 중앙 정렬 */
+    padding: 20px; /* 패딩 추가 */
+    background-color: #f3e5f5; /* 연한 보라색 배경 */
+    border-radius: 8px; /* 모서리 둥글게 */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* 그림자 추가 */
+}
+

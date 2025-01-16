@@ -1,46 +1,52 @@
-<%-include('layouts/header.ejs')%>
+<%- include('layouts/header.ejs') %>
 
-    <h2>친구 목록 입니다.</h2>
+<div class="container my-5">
+    <h2 class="text-center mb-4">친구 목록입니다.</h2>
 
-    <table border=1>
-        <tr>
-            <th>id</th>
-            <th>name</th>
-            <th>phone</th>
-            <th>email</th>
-            <th>DELETE</th>
-        </tr>
-        <% lists.forEach(function(item) { %>
-        <tr>
-            <td><%=item.id%></td>
-            <td><%=item.name%></td>
-            <td><%=item.phone%></td>
-            <td><%=item.email%></td>
-            <td>
-                <button type="button" onclick="deleteFriends('<%=item.id%>')"> DELETE </button>
-            </td>
-        </tr>
-        <% }) %>
+    <table class="table table-bordered table-striped">
+        <thead class="table-light">
+            <tr>
+                <th>id</th>
+                <th>name</th>
+                <th>phone</th>
+                <th>email</th>
+                <th>DELETE</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% lists.forEach(function(item) { %>
+            <tr>
+                <td><%= item.id %></td>
+                <td><%= item.name %></td>
+                <td><%= item.phone %></td>
+                <td><%= item.email %></td>
+                <td>
+                    <button type="button" class="btn btn-danger" onclick="deleteFriends('<%= item.id %>')"> DELETE </button>
+                </td>
+            </tr>
+            <% }) %>
+        </tbody>
     </table>
+</div>
 
-    <script>
-        async function deleteFriends(friendsId) {
-            try {
-                const response = await fetch(`/api/friendsDelete/${friendsId}`, {
-                    method: 'PUT',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    }
-                });
-                if (!response.ok) {
-                    throw new Error('삭제 오류');
+<script>
+    async function deleteFriends(friendsId) {
+        try {
+            const response = await fetch(`/api/friendsDelete/${friendsId}`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json'
                 }
-                alert('친구가 삭제되었습니다.');
-                location.reload();
-            } catch (error) {
-                console.error('삭제 오류 : ', error);
+            });
+            if (!response.ok) {
+                throw new Error('삭제 오류');
             }
+            alert('친구가 삭제되었습니다.');
+            location.reload();
+        } catch (error) {
+            console.error('삭제 오류 : ', error);
         }
-    </script>
+    }
+</script>
 
-<%-include('layouts/footer.ejs')%>
+<%- include('layouts/footer.ejs') %>

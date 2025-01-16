@@ -1,13 +1,26 @@
-<%-include('layouts/header.ejs')%>
+<%- include('layouts/header.ejs') %>
 
-    <h2>친구 추가 하기</h2>
-    <form action="api/follow" method="post">
-        <ul>
-            <li>이름 : <input type="text" name= "name" placeholder="Name" required></li> 
-            <li>연락처 : <input type="text" name= "phone" placeholder="Phone Number" required></li>
-            <li>이메일 : <input type="text" name= "email" placeholder="Email Adress" required></li>
-            <button type="submit">추가하기</button>
+<div class="containerFriends my-5">
+    <h2 class="text-center mb-4">친구 추가하기</h2>
+    <form action="api/follow" method="post" class="border rounded p-4 shadow">
+        <ul class="list-unstyled">
+            <li class="mb-3">
+                <label for="name" class="form-label">이름</label>
+                <input type="text" name="name" id="name" class="form-control" placeholder="Name" required>
+            </li>
+            <li class="mb-3">
+                <label for="phone" class="form-label">연락처</label>
+                <input type="text" name="phone" id="phone" class="form-control" placeholder="Phone Number" required>
+            </li>
+            <li class="mb-3">
+                <label for="email" class="form-label">이메일</label>
+                <input type="text" name="email" id="email" class="form-control" placeholder="Email Address" required>
+            </li>
+            <li>
+                <button type="submit" class="btn btn-primary w-100">추가하기</button>
+            </li>
         </ul>
     </form>
+</div>
 
-<%-include('layouts/footer.ejs')%>
+<%- include('layouts/footer.ejs') %>
