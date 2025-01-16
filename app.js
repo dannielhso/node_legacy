@@ -120,7 +120,11 @@ app.get('/contactList', (req, res) => {
         } else {
             console.log('데이터가 조회 되었습니다.');
             console.log(result);
-            res.render('contactList', {lists: result}); // ('뷰', {모델})
+
+            const unconfirmedLists = result.filter(item => item.status === 'ongoing');
+            const confirmedLists = result.filter(item => item.status === 'done');
+
+            res.render('contactList', { unconfirmedLists, confirmedLists }); // ('뷰', {모델})
         }
     });
 });
