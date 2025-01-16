@@ -1,0 +1,133 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #e3f2fd; /* 연한 파란색 배경 */
+    color: #0d47a1; /* 짙은 파란색 텍스트 */
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+    background-color: white; /* 흰색 배경 */
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+header {
+    text-align: center;
+}
+
+h1 {
+    font-size: 2.5rem;
+}
+
+h2 {
+    color: #1976d2; /* 중간 파란색 */
+}
+
+.about, .contact {
+    margin: 20px 0;
+}
+
+p {
+    line-height: 1.6;
+}
+.circle-image {
+    width: 100px; /* 이미지 너비 */
+    height: 100px; /* 이미지 높이 */
+    border-radius: 50%; /* 동그란 이미지 */
+    overflow: hidden; /* 동그란 영역 밖의 이미지는 보이지 않음 */
+    margin: 0 auto; /* 중앙 정렬 */
+}
+
+.circle-image img {
+    width: 100%; /* 이미지가 동그란 영역에 맞게 조정 */
+    height: auto; /* 비율을 유지하면서 높이 자동 조정 */
+}
+
+.strength-item {
+    text-align: center; /* 텍스트 중앙 정렬 */
+    margin: 20px 0; /* 항목 간 여백 */
+}
+
+
+.skill {
+    margin: 20px 0; /* 각 스킬 항목 간 여백 */
+    text-align: left; /* 텍스트 왼쪽 정렬 */
+}
+
+.skill-name {
+    margin-left: 200px; /* 스킬 이름과 막대기 간 여백 */
+}
+
+.progress {
+    background-color: #e0e0e0; /* 배경 색상 */
+    border-radius: 5px; /* 모서리 둥글게 */
+    overflow: hidden; /* 내용이 영역을 넘지 않도록 */
+    margin: 0 200px; /* 양쪽 여백 */
+}
+
+.progress-bar {
+    background-color: #1976d2; /* 막대기 색상 */
+    color: white; /* 텍스트 색상 */
+    text-align: center; /* 텍스트 중앙 정렬 */
+    padding: 5px 0; /* 위아래 패딩 */
+    transition: width 0.3s ease; /* 애니메이션 효과 */
+}
+
+.containerContact {
+    max-width: 600px; /* 최대 너비 설정 */
+    margin: auto; /* 중앙 정렬 */
+    padding: 20px; /* 패딩 추가 */
+    background-color: #f3e5f5; /* 연한 보라색 배경 */
+    border-radius: 8px; /* 모서리 둥글게 */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* 그림자 추가 */
+}
+
+.contact-info {
+    margin-bottom: 20px; /* 연락처 정보와 폼 간 여백 */
+}
+
+.contact-info h4 {
+    margin-bottom: 15px; /* 제목과 내용 간 여백 */
+}
+
+input.form-control, textarea.form-control {
+    border: 1px solid #1976d2; /* 테두리 색상 */
+}
+
+input.form-control:focus, textarea.form-control:focus {
+    border-color: #0d47a1; /* 포커스 시 테두리 색상 변경 */
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* 포커스 시 그림자 추가 */
+}
+
+.btn-primary {
+    background-color: #1976d2; /* 버튼 배경 색상 */
+    border: none; /* 테두리 제거 */
+}
+
+.btn-primary:hover {
+    background-color: #0d47a1; /* 버튼 호버 시 색상 변경 */
+}
+
+
+.portfolio-section {
+    background-color: white; /* 흰색 배경 */
+    padding: 60px 20px; /* 상하 패딩 증가 */
+    border-radius: 8px; /* 모서리 둥글게 */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* 그림자 추가 */
+    margin: 0 20px; /* 양쪽 여백 */
+}
+
+.portfolio-item {
+    text-align: center; /* 텍스트 중앙 정렬 */
+    margin-bottom: 40px; /* 항목 간 여백 증가 */
+}
+
+.portfolio-item img {
+    width: 100%; /* 이미지 너비 100% */
+    height: auto; /* 비율 유지 */
+    border-radius: 5px; /* 이미지 모서리 둥글게 */
+}

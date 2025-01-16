@@ -3,12 +3,14 @@
 
 <head>
     <%-include('layouts/header.ejs')%>
+    <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>내 소개</title>
+        <link rel="stylesheet" href="/css/styles.css"> <!-- CSS 파일 링크 -->
 </head>
 
 <body class="d-flex flex-column h-100">
     <main class="flex-shrink-0">
-
-
         <!-- Header -->
         <header class="py-5">
             <div class="container px-5 pb-5">
@@ -51,32 +53,218 @@
         </header>
 
         <!-- About Section -->
-        <section class="bg-light py-5">
+        <section class="bg-light py-5" id="Strength">
             <div class="container px-5">
                 <div class="row gx-5 justify-content-center">
                     <div class="col-xxl-8">
                         <div class="text-center my-5">
                             <h2 class="display-5 fw-bolder">
-                                <span class="text-gradient d-inline">About Me</span>
+                                <span class="text-gradient d-inline">My Strength</span>
                             </h2>
-                            <p class="lead fw-light mb-4">My name is Start Bootstrap and I help brands grow.</p>
-                            <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit dolorum itaque qui unde quisquam consequatur autem. Eveniet quasi nobis aliquid cumque officiis sed rem iure ipsa! Praesentium ratione atque dolorem?</p>
-                            <div class="d-flex justify-content-center fs-2 gap-4">
-                                <a class="text-gradient" href="#!">
-                                    <i class="bi bi-twitter"></i>
-                                </a>
-                                <a class="text-gradient" href="#!">
-                                    <i class="bi bi-linkedin"></i>
-                                </a>
-                                <a class="text-gradient" href="#!">
-                                    <i class="bi bi-github"></i>
-                                </a>
+                            <br>
+                            <div class="row">
+                                <!-- 첫 번째 장점 -->
+                                <div class="col-md-4">
+                                    <div class="strength-item">
+                                        <div class="circle-image">
+                                            <img src="image01.png" alt="Strength 1" />
+                                        </div>
+                                        <h4>POWER</h4>
+                                    </div>
+                                </div>
+                                
+                                <!-- 두 번째 장점 -->
+                                <div class="col-md-4">
+                                    <div class="strength-item">
+                                        <div class="circle-image">
+                                            <img src="image02.png" alt="Strength 2" />
+                                        </div>
+                                        <h4>LOVE</h4>
+                                    </div>
+                                </div>
+                                
+                                <!-- 세 번째 장점 -->
+                                <div class="col-md-4">
+                                    <div class="strength-item">
+                                        <div class="circle-image">
+                                            <img src="image03.png" alt="Strength 3" />
+                                        </div>
+                                        <h4>JOB DONE</h4>
+                                    </div>
+                                </div>
+                            </div>
+                        
+                            <div class="row mt-4">
+                                <!-- 네 번째 장점 -->
+                                <div class="col-md-4">
+                                    <div class="strength-item">
+                                        <div class="circle-image">
+                                            <img src="image04.png" alt="Strength 4" />
+                                        </div>
+                                        <h4>GREEN</h4>
+                                    </div>
+                                </div>
+                                
+                                <!-- 다섯 번째 장점 -->
+                                <div class="col-md-4">
+                                    <div class="strength-item">
+                                        <div class="circle-image">
+                                            <img src="image05.png" alt="Strength 5" />
+                                        </div>
+                                        <h4>CERTIFIED</h4>
+                                    </div>
+                                </div>
+                                
+                                <!-- 여섯 번째 장점 -->
+                                <div class="col-md-4">
+                                    <div class="strength-item">
+                                        <div class="circle-image">
+                                            <img src="image06.png" alt="Strength 6" />
+                                        </div>
+                                        <h4>HARD WORK</h4>
+                                    </div>
+                                </div>
                             </div>
                         </div>
+                        
                     </div>
                 </div>
             </div>
         </section>
+        
+        <div class="text-center my-5" id="Skills">
+            <h2 class="display-5 fw-bolder">
+                <span class="text-gradient d-inline">My Skills</span>
+            </h2>
+        
+            <div class="skill">
+                <div class="skill-name">
+                    <h4>HTML</h4>
+                </div>
+                <div class="progress">
+                    <div class="progress-bar" style="width: 45%;">45%</div>
+                </div>
+            </div>
+        
+            <div class="skill">
+                <div class="skill-name">
+                    <h4>CSS</h4>
+                </div>
+                <div class="progress">
+                    <div class="progress-bar" style="width: 40%;">40%</div>
+                </div>
+            </div>
+        
+            <div class="skill">
+                <div class="skill-name">
+                    <h4>JavaScript</h4>
+                </div>
+                <div class="progress">
+                    <div class="progress-bar" style="width: 60%;">60%</div>
+                </div>
+            </div>
+        
+            <div class="skill">
+                <div class="skill-name">
+                    <h4>Java</h4>
+                </div>
+                <div class="progress">
+                    <div class="progress-bar" style="width: 70%;">70%</div>
+                </div>
+            </div>
+        
+            <div class="skill">
+                <div class="skill-name">
+                    <h4>Node.js</h4>
+                </div>
+                <div class="progress">
+                    <div class="progress-bar" style="width: 30%;">30%</div>
+                </div>
+            </div>
+        
+            <div class="skill">
+                <div class="skill-name">
+                    <h4>C</h4>
+                </div>
+                <div class="progress">
+                    <div class="progress-bar" style="width: 55%;">55%</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="portfolio-section my-5" id="Portfoio">
+            <h2 class="text-center">포트폴리오</h2>
+            <div class="row gy-4">
+                <div class="col-md-4">
+                    <div class="portfolio-item">
+                        <img src="deer-8463729_1280.png" alt="Project 1" class="img-fluid">
+                        <h4>Space</h4>
+                        <p>Yes, I built this.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="portfolio-item">
+                        <img src="nature-8280318_1280.png" alt="Project 2" class="img-fluid">
+                        <h4>Building</h4>
+                        <p>One of my best.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="portfolio-item">
+                        <img src="trees-8463651_1280.png" alt="Project 3" class="img-fluid">
+                        <h4>Sky</h4>
+                        <p>It was challenging.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        
+
+        <div class="containerContact my-5">
+            <h2 class="text-center my-5">문의하기</h2>
+            <div class="row">
+                <div class="col-md-6 contact-info">
+                    <h4>연락처 정보</h4>
+                    <p><strong>전화번호:</strong> 010-1234-5678</p>
+                    <p><strong>이메일:</strong> example@example.com</p>
+                    <p><strong>주소:</strong> 서울특별시 예시구 예시동 123-45</p>
+                </div>
+                <div class="col-md-6">
+                    <form action="api/contact" method="post">
+                        <div class="row gy-4">
+                            <div class="col-md-12">
+                                <label for="name-field" class="pb-2">이름</label>
+                                <input type="text" name="name" id="name-field" class="form-control" required="">
+                            </div>
+        
+                            <div class="col-md-12">
+                                <label for="email-field" class="pb-2">이메일</label>
+                                <input type="email" class="form-control" name="email" id="email-field" required="">
+                            </div>
+        
+                            <div class="col-md-12">
+                                <label for="phone-field" class="pb-2">전화번호</label>
+                                <input type="text" class="form-control" name="phone" id="phone-field" required="">
+                            </div>
+        
+                            <div class="col-md-12">
+                                <label for="message-field" class="pb-2">메시지</label>
+                                <textarea class="form-control" name="memo" rows="8" id="message-field" required=""></textarea>
+                            </div>
+                            
+                            <div class="col-md-12">
+                                <button class="w-100 btn btn-lg btn-primary" type="submit">메시지 보내기</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        
+        
+
+
     </main>
 
     <%-include('layouts/footer.ejs')%>
